@@ -1,0 +1,5 @@
+result.json
+\.idea
+\.vs
+\__pycache__
+.gitattributes
