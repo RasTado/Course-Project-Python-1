@@ -16,9 +16,10 @@ if __name__ == '__main__':
     config.read('setting.ini')
     VkUser = VKUser(config['VK']['vk_token'], config['VK']['version_vk'])
     result = VkUser.get_fotos(user, quantity)
+    print(result)
     json_file = []
     for res in result:
-        json_file.append({"file_name": res[0], "size": res[3]})
+        json_file.append({"file_name": res[0], "size": res[2]})
     with open ('result.json', 'w') as data:
         json.dump(json_file, data)
     YaUser = YaUploader(config['Yandex']['yandex_token'])

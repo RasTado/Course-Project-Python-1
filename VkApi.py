@@ -44,6 +44,6 @@ class VKUser:
                 dict_fotos.append(dict_foto)
                 likes_dict.append(name_likes_foto)
             else:
-                dict_foto = name_likes_foto, name_date_foto, url_largest_foto, url_largest_foto_type
+                dict_foto = f'{name_likes_foto} {name_date_foto}', url_largest_foto, url_largest_foto_type
                 dict_fotos.append(dict_foto)
         return dict_fotos

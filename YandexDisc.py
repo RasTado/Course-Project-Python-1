@@ -22,9 +22,9 @@ class YaUploader:
         self._create_directory(user)
         bar = IncrementalBar('Countdown', max = len(result))
         for fotos in result:
-            names = str(fotos[0]) + ' ' + str(fotos[1])
+            names = str(fotos[0])
             params = {'path': f'/netology/{user}/{names}',
-                      'url': fotos[2]}
+                      'url': fotos[1]}
             requests.post(upload_url, headers = self.headers, params = params)
             bar.next()
             time.sleep(1)
