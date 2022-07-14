@@ -9,17 +9,16 @@ class VKUser:
         self.params = {'access_token': token_v,
                        'v': version}
 
-    def users_get(self, user_id=None):
+    def users_get(self, user_id):
         users_get_url = self.url + 'users.get'
-        users_get_params = {'user_ids': user_id,
-                            'fields': 'education,sex'}
+        users_get_params = {'user_ids': user_id}
         req_users_get = requests.get(users_get_url,
                                      params = self.params | users_get_params).json()
-        return req_users_get['response'][0]['id']
+        return req_users_get['response'][0]
 
-    def get_fotos(self, user=None, count=None):
+    def get_fotos(self, trg_user, count):
         get_fotos_url = self.url + 'photos.get'
-        get_fotos_param = {'owner_id': self.users_get(user),
+        get_fotos_param = {'owner_id': trg_user,
                            'album_id': 'profile',
                            'extended': '1',
                            'rev': '1',
